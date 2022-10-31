@@ -49,6 +49,24 @@ public sealed class TableRowCollectionExtensionsTests
     }
 
     [UsesVerify]
+    public sealed class TheAddRowsMethod
+    {
+        [Fact]
+        public Task Should_Add_Multiple_Renderables()
+        {
+            var console = new TestConsole();
+            var table = new Table();
+        }
+
+        [Fact]
+        public Task Should_Add_Multiple_Strings()
+        {
+            var console = new TestConsole();
+            var table = new Table();
+        }
+    }
+
+    [UsesVerify]
     public sealed class TheInsertRowMethod
     {
         [Fact]
