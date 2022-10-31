@@ -10,11 +10,21 @@ The `Panel` widget can be used to organize text into a rendered box.
 
 <?# AsciiCast cast="panel" /?>
 
+<<<<<<< HEAD
 ![Panel](../assets/images/panel.png)
 
 ## Usage
 
 
+=======
+## Usage
+
+To render a table, create a `Table` instance, passing a string to its constructor to assign the contents.
+
+```csharp
+var panel = new Panel("Hello World");
+```
+>>>>>>> upstream/main
 
 ## Appearance
 
@@ -27,7 +37,11 @@ panel.Header = new PanelHeader("Some text");
 
 # Borders
 
+<<<<<<< HEAD
 For a list of borders, see the Borders appendix section.
+=======
+For a list of borders, see the [Borders](xref:borders) appendix section.
+>>>>>>> upstream/main
 
 ```csharp
 // Sets the border
@@ -38,3 +52,25 @@ panel.Border = BoxBorder.Heavy;
 panel.Border = BoxBorder.Double;
 panel.Border = BoxBorder.None;
 ```
+<<<<<<< HEAD
+=======
+
+# Padding
+
+```csharp
+// Sets the padding
+panel.Padding = new Padding(2, 2, 2, 2);
+```
+
+# Expand
+
+Enabling the Expand property will cause the Panel to be as wide as the console. 
+Otherwise, the Panel width will be automatically calculated based on its content.
+Note that this auto-calculation is not based on the Panel Header, so a Header that
+is long in length may get truncated with certain content.
+
+```csharp
+// Sets the expand property
+panel.Expand = true;
+```
+>>>>>>> upstream/main

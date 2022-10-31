@@ -48,7 +48,7 @@ public sealed class TableRowCollectionExtensionsTests
         }
     }
 
-    [UsesVerify]
+/*    [UsesVerify]
     public sealed class TheAddRowsMethod
     {
         [Fact]
@@ -56,6 +56,8 @@ public sealed class TableRowCollectionExtensionsTests
         {
             var console = new TestConsole();
             var table = new Table();
+
+            Sequence s = new Sequence();
         }
 
         [Fact]
@@ -64,7 +66,7 @@ public sealed class TableRowCollectionExtensionsTests
             var console = new TestConsole();
             var table = new Table();
         }
-    }
+    }*/
 
     [UsesVerify]
     public sealed class TheInsertRowMethod
