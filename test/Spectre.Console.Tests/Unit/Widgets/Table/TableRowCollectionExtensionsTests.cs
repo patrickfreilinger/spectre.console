@@ -48,25 +48,35 @@ public sealed class TableRowCollectionExtensionsTests
         }
     }
 
-/*    [UsesVerify]
+    [UsesVerify]
     public sealed class TheAddRowsMethod
     {
         [Fact]
+        [Expectation("AddMulti", "Renderables")]
         public Task Should_Add_Multiple_Renderables()
         {
+            // Given
             var console = new TestConsole();
             var table = new Table();
+            table.AddColumn("Column #1");
+            table.AddColumn("Column #2");
+            table.AddColumn("Column #3");
+            List<List<Markup>> sequence = new List<List<Markup>>();
+            List<Markup> list1 = new List<Markup> { new Markup("Foo"), new Markup("Bar"), new Markup("Baz") };
+            List<Markup> list2 = new List<Markup> { new Markup("Snap"), new Markup("Crackle"), new Markup("Pop") };
+            List<Markup> list3 = new List<Markup> { new Markup("Hello"), new Markup("World") };
+            sequence.Add(list1);
+            sequence.Add(list2);
+            sequence.Add(list3);
+            table.AddRows(sequence);
 
-            Sequence s = new Sequence();
-        }
+            // When
+            console.Write(table);
 
-        [Fact]
-        public Task Should_Add_Multiple_Strings()
-        {
-            var console = new TestConsole();
-            var table = new Table();
+            // Then
+            return Verifier.Verify(console.Output);
         }
-    }*/
+    }
 
     [UsesVerify]
     public sealed class TheInsertRowMethod

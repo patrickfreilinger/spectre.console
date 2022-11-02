@@ -113,25 +113,14 @@ public static class TableExtensions
         return table;
     }
 
-    public static Table AddRows<T>(this Table table, IEnumerable<T> sequence, Converter<T, IEnumerable<IRenderable>> render)
+    public static Table AddRows<T>(this Table table, in IEnumerable<T> sequence)
     {
-        foreach (var row in sequence.CreateRows(render))
+        foreach (var row in sequence)
         {
-            table.AddRow(row);
+            TableRow tr = new TableRow((IEnumerable<IRenderable>)row);
+            table.AddRow(tr);
         }
         return table;
-    }
-
-    private static IEnumerable<TableRow> CreateRows<T>(this IEnumerable<T> sequence, Converter<T, IEnumerable<IRenderable>> render)
-    {
-        if (sequence is null || render is null)
-        {
-            yield break;
-        }
-        foreach (var item in sequence)
-        {
-            yield return new(render.Invoke(item));
-        }
     }
 
     /// <summary>
