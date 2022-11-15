@@ -5,20 +5,43 @@ namespace Spectre.Console.Rendering;
 /// </summary>
 public sealed class DoubleBoxBorder : BoxBorder
 {
-    /// <inheritdoc/>
-    public override string GetPart(BoxBorderPart part)
+    public override string GetTopLeftSymbol()
     {
-        return part switch
-        {
-            BoxBorderPart.TopLeft => "╔",
-            BoxBorderPart.Top => "═",
-            BoxBorderPart.TopRight => "╗",
-            BoxBorderPart.Left => "║",
-            BoxBorderPart.Right => "║",
-            BoxBorderPart.BottomLeft => "╚",
-            BoxBorderPart.Bottom => "═",
-            BoxBorderPart.BottomRight => "╝",
-            _ => throw new InvalidOperationException("Unknown border part."),
-        };
+        return "╔";
+    }
+
+    public override string GetTopSymbol()
+    {
+        return "═";
+    }
+
+    public override string GetTopRightSymbol()
+    {
+        return "╗";
+    }
+
+    public override string GetLeftSymbol()
+    {
+        return "║";
+    }
+
+    public override string GetRightSymbol()
+    {
+        return "║";
+    }
+
+    public override string GetBottomLeftSymbol()
+    {
+        return "╚";
+    }
+
+    public override string GetBottomSymbol()
+    {
+        return "═";
+    }
+
+    public override string GetBottomRightSymbol()
+    {
+        return "╝";
     }
 }
