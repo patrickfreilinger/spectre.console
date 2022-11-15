@@ -117,7 +117,7 @@ public sealed class Panel : Renderable, IHasBoxBorder, IHasBorder, IExpandable, 
 
             if (showBorder)
             {
-                result.Add(new Segment(border.GetPart(BoxBorderPart.Left), borderStyle));
+                result.Add(new Segment(border.GetLeftSymbol(), borderStyle));
             }
 
             var content = new List<Segment>();
@@ -135,7 +135,7 @@ public sealed class Panel : Renderable, IHasBoxBorder, IHasBorder, IExpandable, 
 
             if (showBorder)
             {
-                result.Add(new Segment(border.GetPart(BoxBorderPart.Right), borderStyle));
+                result.Add(new Segment(border.GetRightSymbol(), borderStyle));
             }
 
             // Don't emit a line break if this is the last
@@ -153,9 +153,9 @@ public sealed class Panel : Renderable, IHasBoxBorder, IHasBorder, IExpandable, 
         // Panel bottom
         if (showBorder)
         {
-            result.Add(new Segment(border.GetPart(BoxBorderPart.BottomLeft), borderStyle));
-            result.Add(new Segment(border.GetPart(BoxBorderPart.Bottom).Repeat(panelWidth - EdgeWidth), borderStyle));
-            result.Add(new Segment(border.GetPart(BoxBorderPart.BottomRight), borderStyle));
+            result.Add(new Segment(border.GetBottomLeftSymbol(), borderStyle));
+            result.Add(new Segment(border.GetBottomSymbol().Repeat(panelWidth - EdgeWidth), borderStyle));
+            result.Add(new Segment(border.GetBottomRightSymbol(), borderStyle));
         }
 
         // TODO: Need a better name for this?
@@ -184,13 +184,13 @@ public sealed class Panel : Renderable, IHasBoxBorder, IHasBorder, IExpandable, 
         };
 
         // Top left border
-        result.Add(new Segment(border.GetPart(BoxBorderPart.TopLeft), borderStyle));
+        result.Add(new Segment(border.GetTopLeftSymbol(), borderStyle));
 
         // Top border (and header text if specified)
         result.AddRange(((IRenderable)rule).Render(context, panelWidth - 2).Where(x => !x.IsLineBreak));
 
         // Top right border
-        result.Add(new Segment(border.GetPart(BoxBorderPart.TopRight), borderStyle));
+        result.Add(new Segment(border.GetTopRightSymbol(), borderStyle));
         result.Add(Segment.LineBreak);
     }
 }

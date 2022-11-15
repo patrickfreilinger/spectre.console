@@ -79,7 +79,7 @@ public sealed class Rule : Renderable, IAlignable, IHasBoxBorder
     private IEnumerable<Segment> GetLineWithoutTitle(RenderContext context, int maxWidth)
     {
         var border = Border.GetSafeBorder(safe: !context.Unicode);
-        var text = border.GetPart(BoxBorderPart.Top).Repeat(maxWidth);
+        var text = border.GetTopSymbol().Repeat(maxWidth);
 
         return new[]
         {
@@ -100,7 +100,7 @@ public sealed class Rule : Renderable, IAlignable, IHasBoxBorder
         var titleLength = Segment.CellCount(title);
 
         var border = Border.GetSafeBorder(safe: !context.Unicode);
-        var borderPart = border.GetPart(BoxBorderPart.Top);
+        var borderPart = border.GetTopSymbol();
 
         var alignment = Alignment ?? Justify.Center;
         if (alignment == Justify.Left)
